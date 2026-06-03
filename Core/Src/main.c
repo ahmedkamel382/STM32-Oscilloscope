@@ -14,6 +14,7 @@
 /* USER CODE BEGIN Includes */
 #include "st7789.h"
 #include "dso.h"
+#include "dso_ui.h"   /* NEW: menu / analyzer / signal-memory front-end */
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,12 +116,15 @@ int main(void)
 
   /* DSO engine Initialization */
   DSO_Init(&g_dso, &hadc1, &htim2, &hspi1);
-  DSO_RedrawStaticUI(&g_dso);
   DSO_Start(&g_dso);
+  /* NEW: bring up the button-navigated menu first.  DSO_UI_Init draws the
+   * menu screen itself, so the old boot-time DSO_RedrawStaticUI() call is no
+   * longer needed here -- the UI module redraws the scope when you enter it. */
+  DSO_UI_Init(&g_dso);
   /* USER CODE END 2 */
 
   /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
+  /* USER CODE BEGIN WHILE */
     while (1)
     {
   	  /* AGGRESSIVE CRASH FIX: If the ADC panics, fully restart the DMA */
@@ -133,8 +137,10 @@ int main(void)
   		 HAL_ADC_Start_DMA(&hadc1, (uint32_t *)g_dso.buf_a, SAMPLE_COUNT);
   	        }
 
-        DSO_PollButtons(&g_dso);
-        DSO_ProcessFrame(&g_dso);
+        /* NEW: single entry point that runs the menu / analysis / memory
+         * state machine.  In Live Scope mode it calls the original
+         * DSO_PollButtons() + DSO_ProcessFrame() internally, unchanged. */
+        DSO_UI_Task(&g_dso);
 
         uint32_t now = HAL_GetTick();
         if (now - last_blink > 500) {
@@ -172,12 +178,13 @@ int main(void)
             /* Only send if USB driver is idle -- prevents overrun freezes. */
             (void)CDC_Transmit_FS(usb_pkt, 96 + SAMPLE_COUNT * 2);
         }
-      /* USER CODE END WHILE */
+    /* USER CODE END WHILE */
 
-      /* USER CODE BEGIN 3 */
+    /* USER CODE BEGIN 3 */
     }
-    /* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
+
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -242,7 +249,7 @@ static void MX_ADC1_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
@@ -262,7 +269,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
