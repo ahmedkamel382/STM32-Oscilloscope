@@ -1,0 +1,7 @@
+../Core/Src/dso_ai.c:15:13:DSO_AI_ClassName	16	static
+../Core/Src/dso_ai.c:29:10:DSO_AI_ClassColor	16	static
+../Core/Src/dso_ai.c:41:13:add_advice	28	static
+../Core/Src/dso_ai.c:69:17:med5	40	static
+../Core/Src/dso_ai.c:79:17:at	16	static
+../Core/Src/dso_ai.c:87:17:denoise	72	static
+../Core/Src/dso_ai.c:111:6:DSO_AI_Analyze	240	static
