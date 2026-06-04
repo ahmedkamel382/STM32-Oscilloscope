@@ -1,0 +1,18 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Application Runtime Data
+# CRITICAL: Ignore the local database so you don't commit your saved waveforms!
+dso_readings.db
+dso_readings.db-journal
+
+# OS generated files
+.DS_Store
+Thumbs.db
