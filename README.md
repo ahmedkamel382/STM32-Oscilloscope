@@ -10,7 +10,6 @@ A high-performance, low-cost Digital Storage Oscilloscope (DSO) engineered from 
 This project was developed for the **Embedded Systems (ECE5206)** course at the **Arab Academy for Science, Technology and Maritime Transport (AASTMT)**, supervised by **Dr. Amr Fahmy**.
 
 ---
-
 ## 🚀 Key Features
 
 * **Bipolar Signal Acquisition:** A custom analog conditioning circuit featuring a 1.65V virtual ground allows the single-supply microcontroller ADC to safely read alternating current (AC) waveforms.
