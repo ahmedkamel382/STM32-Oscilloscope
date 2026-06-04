@@ -141,10 +141,4 @@ python dso_app.py
 
 ## 📝 License & Academic Disclaimer
 
-This repository contains academic coursework and is provided **as-is** for educational purposes.
-
-<<<<<<< HEAD
-Do **not** connect this device directly to mains AC voltage or high-voltage circuits without proper industrial isolation and safety equipment.
-=======
-Do **not** connect this device directly to mains AC voltage or high-voltage circuits without proper industrial isolation and safety equipment.
->>>>>>> 1f2323dbf5ccaf77c7013236c050248808881209
+This repository contains academic coursework and is provided **as-is** for educational purposes. Do **not** connect this device directly to mains AC voltage or high-voltage circuits without proper industrial isolation and safety equipment.
