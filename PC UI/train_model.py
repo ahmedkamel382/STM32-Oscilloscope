@@ -5,7 +5,7 @@ train_model.py  --  Trains the REAL offline waveform classifier (no internet).
 A genuine scikit-learn RandomForest, not a rule table. It learns to tell
 sine / square / triangle / noise / DC apart from shape features.
 
-We synthesise training frames that look like what the STM32 streams (320 samples,
+We synthesize training frames that look like what the STM32 streams (320 samples,
 12-bit range, random amplitude / frequency / phase / offset / duty / noise). It
 trains on FEATURES from the shared dso_features module, so the live app and the
 model always compute features the exact same way.

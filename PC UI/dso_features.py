@@ -2,7 +2,7 @@
 dso_features.py  --  Extract calibration-independent features from a 320-sample
 frame, used by BOTH the offline trainer and the live app so they always agree.
 
-Features are computed from raw ADC counts (0..4095) and normalised, so they do
+Features are computed from raw ADC counts (0..4095) and normalized, so they do
 not depend on the front-end calibration or the absolute amplitude.
 """
 import numpy as np
@@ -11,11 +11,11 @@ FEATURE_NAMES = [
     "crest",            # peak/rms  (sine~1.41, square~1.0, triangle~1.73)
     "center_frac",      # fraction of samples near the mean
     "extremes_frac",    # fraction near the top/bottom of the range
-    "zcr",              # mean-crossing rate (normalised)
+    "zcr",              # mean-crossing rate (normalized)
     "spectral_flatness",# 1.0 ~ white noise, ~0 ~ single tone
     "fund_prominence",  # strongest FFT bin / total spectral energy
     "odd_harm_ratio",   # energy at 3f/5f vs fundamental (square/triangle high)
-    "abs_diff",         # mean |x[n]-x[n-1]| normalised by ptp
+    "abs_diff",         # mean |x[n]-x[n-1]| normalized by ptp
     "diff_crest",       # crest factor of the derivative (square edges spike)
     "bimodality",       # histogram bimodality (square sits at 2 levels)
 ]
