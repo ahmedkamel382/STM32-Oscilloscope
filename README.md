@@ -110,34 +110,34 @@ python dso_app.py
 
 ### Ahmed Khalid Mohamed
 
-* Lead Firmware Engineer & System Architect
-* ADC/DMA Pipeline
-* USB-CDC Telemetry
-* Clock Tree & Peripheral Configurations
+* Lead Analog HW & USB Architect
+* 1.65V Virtual Ground & Attenuation Mathematics
+* High-Speed USB-CDC Binary Pipeline
+* Python Packet Decoding (`dso_protocol.py`)
 
 ### Adel Alaa
 
-* Lead PCB Designer & Hardware Integration
-* KiCad PCB Routing
-* Power Rail Decoupling
-* Physical Hardware Assembly
+* Lead Display Driver & AI Engineer
+* ST7789 High-Speed Column-Redraw Renderer
+* KiCad PCB Routing & Hardware Decoupling
+* Live Machine Learning UI Integration
 
 ### Bassel Adel
 
-* Lead Analog Hardware Engineer
-* Analog Front-End (AFE) Prototyping
-* Virtual Ground Circuit Design
-* Transistor Clamping Architecture
-* Signal Testing Bench
+* Lead ADC Firmware & PC UI Engineer
+* TIM2-Paced Hardware ADC Triggering
+* DMA Ping-Pong Buffering Architecture
+* Multithreaded PyQtGraph Desktop UI
 
 ### Omar Abdel Nasser Omar
 
-* Lead Software & Machine Learning Engineer
-* PyQtGraph Desktop UI
-* Multithreaded Data Rendering
-* Random Forest AI Training Pipeline
+* Lead DSP Firmware & Database Engineer
+* Peak-Hold & Interpolation DSP Algorithms
+* SQLite Waveform Database Logging
+* Random Forest AI Model Training
 
 ---
+
 
 ## 📝 License & Academic Disclaimer
 
